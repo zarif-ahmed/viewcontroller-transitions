@@ -13,12 +13,15 @@ There are 2 main classses :
 
     This class contains UINavigationControllerDelegate method that returns the custom animator object that will be used while push/pop of view controller. If you return nil in this delegate method, the push/pop animation will occur with a default animation.
 
-    -------------- Usage -------------------
-    if let secondVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SecondVC") as? SecondVC {
-        let navigationControlDelegate = NavigationControllerDelegate(isPush: true, direction: .FromBottom)
-        self.navigationController?.delegate = navigationControlDelegate
-        self.navigationController?.pushViewController(secondVC, animated: true)
-    }
+   
+        @IBAction func pushAction(_ sender: AnyObject) {
+
+            if let secondVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SecondVC") as? SecondVC {
+                let navigationControlDelegate = NavigationControllerDelegate(isPush: true, direction: .FromBottom)
+                self.navigationController?.delegate = navigationControlDelegate
+                self.navigationController?.pushViewController(secondVC, animated: true)
+            }
+        }
 
 
 - PushPopAnimator

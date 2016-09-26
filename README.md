@@ -5,11 +5,12 @@ You will be able to push a view controller with a present animation.
 
 
 There are 2 main classses :
-- NavigationControllerDelegate
+- NavigationControllerDelegate:
     Set your navigation controller delegate to an instance of this class.
-    Provide 2 parameters while init :
-        -isPush : to differentiate between push and pop
-        -direction : Push/Pop direction.
+
+    - Provide 2 parameters while init :
+        - isPush : to differentiate between push and pop
+        - direction : Push/Pop direction.
 
     This class contains UINavigationControllerDelegate method that returns the custom animator object that will be used while push/pop of view controller. If you return nil in this delegate method, the push/pop animation will occur with a default animation.
 
@@ -24,7 +25,7 @@ There are 2 main classses :
         }
 
 
-- PushPopAnimator
+- PushPopAnimator:
     Implements the cutom animation of the push and pop by implemnting UIViewControllerAnimatedTransitioning protocol. 
 
         //MARK: UIViewControllerAnimatedTransitioning

@@ -1,18 +1,27 @@
 # viewcontroller-transitions
 
-Use the classes in the Transitions folder of the project to customize th the direction of push and pop of your view controller.
-You will be able to push a view controller with a present animation.
+Use the classes in the Transitions folder of the project to customize the direction of push and pop of your view controller.
+You will be able to push a view controller with a present(modal) animation.
 
 
-There are 2 main classses :
+There are 2 main classses in the project where th magic happens :
 - NavigationControllerDelegate:
-    Set your navigation controller delegate to an instance of this class.
+    Set your UINavigationController instance delegate to an instance of this class.
 
     - Provide 2 parameters while init :
         - isPush : to differentiate between push and pop
-        - direction : Push/Pop direction.
+        - direction : Push/Pop direction. This is an enum.
 
-    This class contains UINavigationControllerDelegate method that returns the custom animator object that will be used while push/pop of view controller. If you return nil in this delegate method, the push/pop animation will occur with a default animation.
+            Make the direction of push and pop are opposite to each other i.e if you are pushing from bottom then pop from top.
+            enum AnimationDirection {
+
+                case FromLeft
+                case FromRight
+                case FromTop
+                case FromBottom
+            }
+
+    This class contains UINavigationControllerDelegate method that returns the custom animator object that will be used while push/pop of a view controller. If you return nil in this delegate method, the push/pop animation will occur with a default animation.
 
    
         @IBAction func pushAction(_ sender: AnyObject) {
@@ -26,7 +35,7 @@ There are 2 main classses :
 
 
 - PushPopAnimator:
-    Implements the cutom animation of the push and pop by implemnting UIViewControllerAnimatedTransitioning protocol. 
+    Implements the cutom animation of the push and pop by implementing UIViewControllerAnimatedTransitioning protocol. 
 
         //MARK: UIViewControllerAnimatedTransitioning
         func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {

@@ -1,7 +1,7 @@
 # viewcontroller-transitions
 
 Use the classes in the Transitions folder of the project to customize the direction of push and pop of your view controller.
-You will be able to push a view controller with a present(modal) animation.
+You will be able to push a view controller with a present(modal/FromBottom), FromLeft, FromRight and FromTop animation.
 
 
 There are 2 main classses in the project where th magic happens :
@@ -13,13 +13,13 @@ There are 2 main classses in the project where th magic happens :
         - direction : Push/Pop direction. This is an enum.
 
             Make the direction of push and pop are opposite to each other i.e if you are pushing from bottom then pop from top.
-            enum AnimationDirection {
 
-                case FromLeft
-                case FromRight
-                case FromTop
-                case FromBottom
-            }
+                enum AnimationDirection {
+                    case FromLeft
+                    case FromRight
+                    case FromTop
+                    case FromBottom
+                }
 
     This class contains UINavigationControllerDelegate method that returns the custom animator object that will be used while push/pop of a view controller. If you return nil in this delegate method, the push/pop animation will occur with a default animation.
 
@@ -45,3 +45,10 @@ There are 2 main classses in the project where th magic happens :
         func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
             /// custom animation
         }
+
+
+
+NOTE:
+- Language used is Swift 3.0
+- The frame used for animation is UIScreen.main.bounds i.e device screen size. 
+- Feel free to report any issues.

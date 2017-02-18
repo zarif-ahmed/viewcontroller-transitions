@@ -4,7 +4,7 @@ Use the classes in the Transitions folder of the project to customize the direct
 You will be able to push a view controller with a present(modal/FromBottom), FromLeft, FromRight and FromTop animation.
 
 
-There are 2 main classses in the project where th magic happens :
+There are 2 main classses in the project where the magic happens :
 - NavigationControllerDelegate:
     Set your UINavigationController instance delegate to an instance of this class.
 
